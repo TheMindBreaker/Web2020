@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab  4 Diseño Web</title>
+    <style>
+        .btn {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 15px;
+        }
+
+        .btn-green {background-color: #4CAF50;}
+        .btn-blue {background-color: #008CBA;}
+        .btn-red {background-color: #f44336;}
+        .btn-gray {background-color: #e7e7e7; color: black;}
+        .btn-black {background-color: #555555;}
+
+    </style>
+</head>
+<body>
+    <h1>Hola, pruebas de alertas en javascript</h1>
+    <hr/>
+    <div>
+        <button onclick="normalAlert()" class="btn btn-green">Alerta Normal</button>
+        <button onclick="confirmAlert()" class="btn btn-blue">Alerta Confirm</button>
+        <button onclick="inputAlert()" class="btn btn-gray">Alerta con Ingreso de datos</button>
+        <button onclick="consoleAlert()" class="btn btn-blue">Alerta en consola</button>
+    </div>
+</body>
+<footer>
+    <script>
+        function normalAlert(){
+            alert("Hola Esto es una alerta ");
+        }
+        function confirmAlert(){
+            if(confirm("Quiere aceptar este mensaje de prueba?")){
+                alert("Gracias por aceptar el comando");
+            }else{
+                alert("El mensaje fue cancelado :(");
+            }
+        }
+        function inputAlert(){
+            var input = prompt("Hola, Ingresa cualquier mensaje");
+            if(input == null || input == ''){
+                alert("usted no ingreso ningun mensaje");
+            }else{
+                alert("El mensaje ingresado es => "+ input);
+            }
+        }
+        function consoleAlert() {
+            console.log("Hola A todos este es un mensaje normal a Consola");
+        }
+    </script>
+</footer>
+</html>
