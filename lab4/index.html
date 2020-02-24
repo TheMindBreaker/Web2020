@@ -3,60 +3,139 @@
 <head>
     <meta charset="UTF-8">
     <title>Lab  4 Diseño Web</title>
-    <style>
-        .btn {
-            background-color: #4CAF50; /* Green */
-            border: none;
-            color: white;
-            padding: 15px 32px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            border-radius: 15px;
-        }
-
-        .btn-green {background-color: #4CAF50;}
-        .btn-blue {background-color: #008CBA;}
-        .btn-red {background-color: #f44336;}
-        .btn-gray {background-color: #e7e7e7; color: black;}
-        .btn-black {background-color: #555555;}
-
-    </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <body>
-    <h1>Hola, pruebas de alertas en javascript</h1>
+    <h3>Lab4 A01229632</h3>
     <hr/>
-    <div>
-        <button onclick="normalAlert()" class="btn btn-green">Alerta Normal</button>
-        <button onclick="confirmAlert()" class="btn btn-blue">Alerta Confirm</button>
-        <button onclick="inputAlert()" class="btn btn-gray">Alerta con Ingreso de datos</button>
-        <button onclick="consoleAlert()" class="btn btn-blue">Alerta en consola</button>
+    <div class="container">
+        <button onclick="normalAlert()" class="btn btn-success">Alerta Normal</button>
+        <button onclick="confirmAlert()" class="btn btn-info">Alerta Confirm</button>
+        <button onclick="inputAlert()" class="btn btn-danger">Alerta con Ingreso de datos</button>
+        <button onclick="consoleAlert()" class="btn btn-warning">Alerta en consola</button>
+        <hr/>
+        <div class="row">
+            <div class="col-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Promp Escribit en tabla</h5>
+                        <table  class="table">
+                            <thead>
+                            <tr>
+                                <th>First Cel</th>
+                                <th>Second Cel</th>
+                            </tr>
+                            </thead>
+                            <tbody id="eje1">
+
+                            </tbody>
+                        </table>
+                        <hr/>
+                        <button onclick="ejercicio1()" class="btn btn-info card-link">Ejecutar</button>
+                    </div>
+                </div>
+            </div>
+           <div class="col-6">
+                 <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Suma 2 numeros</h5>
+                        <table  class="table">
+                            <thead>
+                            <tr>
+                                <th>Suma a realizar y resultado</th>
+                                <th>Correcta o Inc</th>
+                                <th>Tiempo</th>
+                            </tr>
+                            </thead>
+                            <tbody id="eje2">
+
+                            </tbody>
+                        </table>
+                        <hr/>
+                        <button onclick="ejercicio2()" class="btn btn-info card-link">Ejecutar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Contador</h5>
+                        <table  class="table">
+                            <tbody id="eje3">
+
+                            </tbody>
+                        </table>
+                        <hr/>
+                        <button onclick="contador()" class="btn btn-info card-link">Ejecutar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br/>
+        <div class="row">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Pregunda</th>
+                    <th>Respuesta</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>¿Qué diferencias y semejanzas hay entre Java y JavaScript?</td>
+                    <td>Primero, Java es un lenguaje que requiere de un compilador para poder ser ejecutado; mientras que JavaScript
+                        es un lenguaje que no se compila, sino que es interpretado por un navegador.  <br>
+                        A diferencia de Java, JavaScript tiene características que le permiten trabajar con una misma variable de distintas
+                        maneras, es decir, puedes declarar una variable y utilizarla como un entero en un principio y al final puedes utilizarla
+                        como un caracter.</td>
+                </tr>
+                <tr>
+                    <td>¿Qué métodos tiene el objeto Date? (Menciona al menos 5*)</td>
+                    <td>
+                        <ul>
+                            <li>getFullYear()</li>
+                            <li>getDay()</li>
+                            <li>getDate()</li>
+                            <li>getMinutes()</li>
+                            <li>getTime()</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>¿Qué métodos tienen los arreglos?</td>
+                    <td>
+                        <ul>
+                            <li>pop(valor)</li>
+                            <li>push(valor)</li>
+                            <li>shift()</li>
+                            <li>unshift()</li>
+                            <li>splice()</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>¿Cómo se declara una variable con alcance local dentro de una función?</td>
+                    <td>Existen dos formas basicas para definir una variable colocando la declaración 'var' dentro de la función o se puede utilizar 'let'.</td>
+                </tr>
+                <tr>
+                    <td>¿Qué implicaciones tiene utilizar variables globales dentro de funciones?</td>
+                    <td>Perdería el propósito de lo que es una función, lo cual es encapsular el procedimiento para que de esa manera exista una mejor cohesión.</td>
+                </tr>
+                <tr>
+                    <td>¿Qué método de String se puede utilizar para buscar patrones con expresiones regulares?¿Para qué podrías utilizar esto en una aplicación web?</td>
+                    <td>Utilizaría el método match() el cual te ayuda a buscar strings dentro de otros strings y los añade a un arreglo.
+                        Se podría utilizar para un buscador en tu página web para buscar frases o palabras exactas.</td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="alert alert-info">
+                <h5>Referencias:</h5>
+                <button class="btn btn-warning">https://www.w3schools.com/js/*</button>
+            </div>
+        </div>
     </div>
 </body>
 <footer>
-    <script>
-        function normalAlert(){
-            alert("Hola Esto es una alerta ");
-        }
-        function confirmAlert(){
-            if(confirm("Quiere aceptar este mensaje de prueba?")){
-                alert("Gracias por aceptar el comando");
-            }else{
-                alert("El mensaje fue cancelado :(");
-            }
-        }
-        function inputAlert(){
-            var input = prompt("Hola, Ingresa cualquier mensaje");
-            if(input == null || input == ''){
-                alert("usted no ingreso ningun mensaje");
-            }else{
-                alert("El mensaje ingresado es => "+ input);
-            }
-        }
-        function consoleAlert() {
-            console.log("Hola A todos este es un mensaje normal a Consola");
-        }
-    </script>
+    <script type="text/javascript" src="lab4.js"></script>
 </footer>
 </html>
