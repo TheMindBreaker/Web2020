@@ -105,3 +105,42 @@ function contador(){
     cell3.innerHTML = ("Negativos: "+nega);
     cell4.innerHTML = ("Neutros: "+non);
 }
+
+function promedio(){
+    var  arg= [  [10, 60, 45],
+        [88, 9, 2],
+        [1250,480,5]
+    ]
+    var i, j, promedio=[], prom;
+
+    var table = document.getElementById("eje4");
+    var row = table.insertRow(0);
+    var cell1 = row.insertCell(0);
+
+    for (i=0; i<3; i++ ){
+        prom = 0;
+        for(j=0; j<3; j++){
+            prom = prom + arg[i][j];
+        }
+        prom = prom/3;
+        promedio.push(prom);
+        cell1.innerHTML = (promedio[i]);
+    }
+
+
+}
+
+function inverso() {
+    var n= prompt("ingrese un numero");
+
+    var table = document.getElementById("eje5");
+    var row = table.insertRow(0);
+    var cell1 = row.insertCell(0);
+
+    var split= n.split("");
+    var reverse = split.reverse();
+    var  inverted = reverse.join("");
+
+    cell1.innerHTML = (inverted);
+
+}
