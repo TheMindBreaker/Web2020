@@ -1,7 +1,5 @@
 
 /*
-Guillermo A. Vazquez Cervantes
-Laboratorio 1 Bases de Datos. 
 entregan.sql 
 */
 SET DATEFORMAT dmy
