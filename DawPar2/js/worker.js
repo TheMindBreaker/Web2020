@@ -9,7 +9,7 @@ function fillTable() {
 
             var html = '';
 
-            if(data=='Data was not founded'){
+            if(data=="No data"){
                 html += '<tr>' +
                     '<td colspan="3">'+data+'</td>'+
                     '</tr>'
@@ -17,7 +17,7 @@ function fillTable() {
                 for(var i = 0; i < data.length; i++){
 
                     html += '<tr>' +
-                        '<td>'+data[i].id+'</td>'+
+                        '<td>'+i+'</td>'+
                         '<td>'+data[i].placeName+'</td>'+
                         '<td>'+data[i].typeName+'</td>'+
                         '<td>'+data[i].dateRegistered+'</td>'+
@@ -35,9 +35,15 @@ function fillTable() {
     });
 }
 
+function sendTo(url){
+    window.location.replace(url);
+
+}
 
 $( document ).ready(function() {
     fillTable();
+
+
 
 
     setTimeout(function(){

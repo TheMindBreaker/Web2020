@@ -18,7 +18,7 @@ class incidents
     {
         $db = new baseCon();
 
-        $incidentsQ = $db->runQuery("SELECT * FROM incident_place_type_view ");
+        $incidentsQ = $db->runQuery("SELECT * FROM incident_place_type_view ORDER BY dateRegistered DESC");
         $incidentsQ->execute();
 
         $incidentsL = $incidentsQ->fetchAll(PDO::FETCH_ASSOC);
@@ -33,11 +33,11 @@ class incidents
 
     }
 
-    public function getStatus()
+    public function getPlaces()
     {
         $db = new baseCon();
 
-        $statusQ = $db->runQuery("SELECT * FROM status");
+        $statusQ = $db->runQuery("SELECT * FROM incident_place");
         $statusQ->execute();
 
         $statusL = $statusQ->fetchAll(PDO::FETCH_ASSOC);
@@ -45,59 +45,67 @@ class incidents
         return $statusL;
     }
 
-    public function totalAmounts()
+    public function getType()
+    {
+        $db = new baseCon();
+
+        $statusQ = $db->runQuery("SELECT * FROM incident_type");
+        $statusQ->execute();
+
+        $statusL = $statusQ->fetchAll(PDO::FETCH_ASSOC);
+
+        return $statusL;
+    }
+
+    public function addIncident($type,$place)
     {
         $db = new baseCon();
 
         ////////All zombies
 
-        $totalZombQ = $db->runQuery("SELECT count() as Total FROM zombies");
-        $totalZombQ->execute();
-
-        $totalZombL = $totalZombQ->fetch(PDO::FETCH_ASSOC);
+        $addQ = $db->runQuery("CALL addIncident(:type,:place) ");
+        $addQ->execute(array(":type"=>$type,":place"=>$place));
 
 
-        /////////Zombies in each Status
-
-        $totalStatusQ = $db->runQuery();
-        $totalStatusQ->execute();
-
-        $totalStatusL = $totalStatusQ->fetch(PDO::FETCH_ASSOC);
-
-        $result = array(
-            totalZombies => $totalZombL,
-            totalStatus => $totalStatusL
-        );
-
-
-        return $result;
-
+        if($addQ){
+            return "Agregado";
+        }else{
+            return "Error Interno";
+        }
     }
 
-    public function getZombiesByStatus($statusId){
+    public function addPlace($placeName)
+    {
         $db = new baseCon();
 
-        if(!empty($statusId)){
-            $zombiesQ = $db->runQuery("SELECT * FROM zombies_status_view WHERE id_status=:id");
-            $zombiesQ->execute(array(":id"=>$statusId));
+        ////////All zombies
 
-            if($zombiesQ->rowCount()>0){
-                $zombiesL = $zombiesQ->fetchAll(PDO::FETCH_ASSOC);
-                $total = $zombiesQ->rowCount();
+        $addQ = $db->runQuery("CALL addPlace(:placeName) ");
+        $addQ->execute(array(":placeName"=>$placeName));
 
-                $response = array(
-                    "total"=>$total,
-                    "list"=>$zombiesL
-                );
 
-            }
-            else{
-                $response = "No data in database";
-            }
+        if($addQ){
+            return "Agregado";
+        }else{
+            return "Error Interno";
         }
-        else{
-            $response = "Missing parameter";
+    }
+
+
+    public function addType($typeName)
+    {
+        $db = new baseCon();
+
+        ////////All zombies
+
+        $addQ = $db->runQuery("CALL addType(:typeName) ");
+        $addQ->execute(array(":typeName"=>$typeName));
+
+
+        if($addQ){
+            return "Agregado";
+        }else{
+            return "Error Interno";
         }
-        return $response;
     }
 }

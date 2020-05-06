@@ -18,13 +18,13 @@
         </div>
         <div class="sidebar-wrapper">
             <ul class="nav">
-                <li class="nav-item active  ">
+                <li class="nav-item">
                     <a class="nav-link" href="index">
                         <i class="material-icons">dashboard</i>
                         <p>Ultimos Incidentes</p>
                     </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item active  ">
                     <a class="nav-link" href="addPlace">
                         <i class="material-icons">place</i>
                         <p>Lugares</p>
@@ -46,7 +46,7 @@
         <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
             <div class="container-fluid">
                 <div class="navbar-wrapper">
-                    <a class="navbar-brand" href="index;">Ultimos Incidentes</a>
+                    <a class="navbar-brand" href="javascript:;">Agregar incidente</a>
                 </div>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="sr-only">Toggle navigation</span>
@@ -65,27 +65,27 @@
 
                     <div class="col-md-12">
                         <div class="card">
-                            <div class="card-header card-header-icon card-header-danger">
+                            <div class="card-header card-header-icon card-header-success">
                                 <div class="card-icon">
-                                    <i class="material-icons">language</i>
+                                    <i class="material-icons">add</i>
                                 </div>
                             </div>
                             <div class="card-body">
 
 
+                                <form id="addPlace">
+                                    <div class="col-md-s12 form-group">
+                                        <label for="exampleFormControlSelect1">Nombre Lugar</label>
+                                        <input name="placeName" class="form-control" placeholder="inserte el nombre" data-style="btn btn-link" required>
+                                        </input>
+                                    </div>
 
-                                <table class="table" id="allIncidents">
-                                    <thead>
-                                    <tr>
-                                        <th class="text-center">#</th>
-                                        <th>Lugar de Incidente</th>
-                                        <th>Tipo de Incidente</th>
-                                        <th>Fecha y Hora</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    </tbody>
-                                </table>
+
+
+                                    <hr/>
+                                    <button type="submit" class="btn btn-success">Agregar</button>
+
+                                </form>
 
 
                             </div>
@@ -102,12 +102,6 @@
         </div>
 
 
-
-        <div id="floating-button">
-            <button onclick="sendTo('addIncident')" class="btn btn-round btn-success">
-                Agregar<i class="material-icons">add</i>
-            </button>
-        </div>
 
 
 
